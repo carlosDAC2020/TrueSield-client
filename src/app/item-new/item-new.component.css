@@ -1,0 +1,89 @@
+.card{
+    background-color: black;
+    border-top:2px solid #14171A;
+    border-left:2px solid #14171A;
+    border-right:2px solid #14171A;
+}
+h4{
+    color:#F5F8FA;
+}
+
+p{
+    color: #E1E8ED;
+}
+
+.subtitle{
+    color:#9a9fa2;
+}
+
+/* estilos cards rss*/
+.card-rss{
+    border-bottom: 4px solid var(--rss-color);
+    cursor: pointer; 
+}
+
+
+
+/* estilos cards x*/
+.card-x{
+    border-bottom: 4px solid var(--x-color);
+    cursor: pointer; 
+}
+
+
+
+/* estilos cards reddit*/
+.card-reddit{
+    border-bottom: 4px solid var(--reddit-color);
+    cursor: pointer; 
+}
+
+
+/*auxiliares de ubicacion */
+.hero{
+    border: 3px solid var(--primary-green);
+}
+
+/* estilos de modal */
+.modal-content {
+    background-color: black;
+}
+
+    /* Estilos CSS para la gráfica dentro del modal */
+.grafic {
+    width: 100%; /* Ancho del 100% del contenedor */
+    height: 100%; /* Altura del 100% del contenedor */
+    /* Otros estilos, como márgenes y rellenos, según sea necesario */
+  }
+  
+
+
+.report{
+    border:3px solid #03ab2d;
+    color: #fff;
+    background-color: #139b352d;
+    border-radius: 15px;
+}
+
+.redirect-info{
+    border:3px solid #454545;
+    border-radius: 30px;
+    width: 60%;
+}
+.close-modal{
+    border:3px solid #454545;
+    border-radius: 30px;
+    width: 30%;
+    text-align: center;
+}
+
+.rdr-reddit:hover{
+    border:4px solid var(--reddit-color);
+}
+
+.rdr-x:hover{
+    border:4px solid var(--x-color);
+}
+.rdr-rss:hover{
+    border:4px solid var(--rss-color);
+}

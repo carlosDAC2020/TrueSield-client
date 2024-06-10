@@ -1,0 +1,138 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+
+
+/* paleta de colores  */
+:root {
+    /* tonos de verde */
+    --primary-green: #04d939; 
+    --secondary-green: #03a63c; 
+    --deactive-green: #027333;
+    
+    /* tonos de azul */
+    --primary-blue: #0fc2c0; 
+    --secondary-blue: #008f8c; 
+
+    /* colres de referencias para fuentes de informacion */
+    --x-color:#1DA1F2;
+    --reddit-color:#FF4500;
+    --rss-color:var(--primary-green)
+}
+html, body {
+    background-color: black;
+    
+}
+
+
+h1,h2{
+    color:white ;
+}
+
+
+/*iconos*/
+.bi-shield-fill-check{
+    color:var(--primary-green);
+}
+
+.bi-reddit, .reddit{
+    color: var(--reddit-color);
+}
+.bi-twitter-x, .x{
+    color: var(--x-color);
+}
+.bi-rss-fill{
+    color:var(--rss-color)
+}
+
+/* Scrollbar styles for Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background: #434242;
+    border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Scrollbar styles for Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #000000;
+}
+
+/* Custom styles for a specific container */
+.custom-scrollbar {
+    max-height: 300px;
+    overflow-y: scroll;
+}
+html, body { height: 100%; }
+main{
+    background-color: #000000;
+}
+/* styles.css o styles.scss */
+
+/* Eliminar subrayado y color de los enlaces */
+a {
+    text-decoration: none;
+    color: inherit; /* Hereda el color del elemento padre */
+  }
+  
+  /* Otras personalizaciones opcionales */
+  a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit; /* O puedes especificar otro color si lo deseas */
+  }
+  /* estilos del loader */
+  .load {
+    border: 3px solid transparent;
+    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    position: relative;
+  }
+  .logo-l{
+    font-size: 100px;
+  }
+  .load::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 100%;
+    border: 3px solid transparent;
+    border-top-color: var(--primary-green); /* Color de tu elección */
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .ld{
+    animation: fadeOut 1s forwards 1s;
+  }
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+.user-true-logo{
+  color: var(--secondary-green);
+}

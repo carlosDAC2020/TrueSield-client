@@ -1,0 +1,127 @@
+
+.card{
+    border: 3px solid #575555;
+    background-color: black;
+}
+
+
+.input-new{
+    background-color: rgba(0, 0, 0, 0.641);
+    border-radius: 80px;
+    font-size: 35px;
+    border-radius: 0%;
+    border-top: 0px ;
+    border-left: 0px ;
+    border-right: 0px;
+    border-bottom: 2px solid var(--primary-green) ;
+    width: 50%;
+  }
+  .input-new::placeholder{
+    color: #868585;
+    font-size: 35px;
+    text-align: center;
+  }
+  .input-new:hover{
+    border-bottom: 4px solid var(--primary-green) ;
+  }
+
+  textarea{
+    field-sizing:content;
+    outline: none; /* Elimina el borde predeterminado de enfoque */
+  }
+  /* Elimina el efecto de enfoque */
+  textarea:focus {
+    outline: none; /* Asegura que no haya un borde extra al enfocar */
+    box-shadow: none; /* Elimina cualquier sombra de enfoque */
+  }
+
+  .btns{
+    width: 50%;
+}
+.btn-send-input{
+    border: 3px solid var(--secondary-green);
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    width: 150px;
+    font-size: 25px;
+}
+.valid-active{
+    background-color: var(--primary-green);
+}
+.btn-search-input{
+    border: 3px solid var(--primary-blue);
+    border-radius: 30px;
+    color: #fff;
+    font-weight: bold;
+    text-align: center;
+    width: 150px;
+    font-size: 25px;
+}
+/* Media query para dispositivos con un ancho máximo de 600px (puedes ajustar el valor según tus necesidades) */
+@media (max-width: 475px) {
+    .input-new {
+        font-size: 25px; /* Ajusta el tamaño de la fuente para dispositivos móviles */
+      width: 90%; /* Aumenta el ancho del input en móviles */
+    }
+
+    .input-new::placeholder {
+      font-size: 25px; /* Asegúrate de que el tamaño del placeholder coincida con el del input */
+    }
+    .btn-send-input{
+        font-size: 15px;
+        width: 100px;
+    }
+    .btn-search-input{
+        font-size: 15px;
+        width: 100px;
+    }
+    .load{
+      width: 200px;
+      height: 200px;    
+    }
+    .logo-l{
+      font-size: 60px;
+    }
+  }
+  
+.caract-ref{
+    color: #afafaf;
+    text-align: left;
+}
+.green-text {
+    color: var(--secondary-green);
+  }
+.red-text{
+    color:#cf5007;
+}
+
+.hero{
+    position: relative;
+}
+video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.capa{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #030303dc;
+}
+
+.fitures{
+    bottom: 100px;
+}
+
+.bi{
+  color: var(--primary-green);
+}
+

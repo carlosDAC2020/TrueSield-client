@@ -1,0 +1,4 @@
+
+fallas de mobile 
+- a menos de 400 px los modales de detalle de noticias tienen inconsistencia en los botones inferiores 
+- a la hora de dar la vuelta el dispositivo la vista de desktop aprece pero al volver a enderezar el movil no regresa la vista movil (toca recargar la pagina para q salga la vista movil)
