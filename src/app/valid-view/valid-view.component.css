@@ -1,0 +1,208 @@
+.card{
+    background-color: black; 
+    border: 2px solid #14171A;
+}
+
+/* estilos de escritorio --------------------------------------------------------------*/
+a {
+  text-decoration: none;
+  color: inherit; /* Hereda el color del elemento padre */
+}
+
+/* Otras personalizaciones opcionales */
+a:hover, a:focus, a:active {
+  text-decoration: none;
+  color: inherit; /* O puedes especificar otro color si lo deseas */
+}
+
+.key-word{
+    text-align: center;
+    font-weight: bold;
+    border:3px solid #03ab2d;
+    color: #fff;
+    background-color: #139b352d;
+    border-radius: 15px;
+}
+.entiti{
+    font-size: 20px;
+    text-align: left;
+}
+.contend{
+    background-color: black;
+}
+
+.navbar {
+    background-color: rgba(0, 0, 0, 1); /* Negro con 80% de opacidad */
+}
+
+.card_load {
+    border: 2px solid var(--secondary-green);
+    animation: borderPulse 3s infinite; /* Set animation duration and repeat */
+  }
+  @keyframes borderPulse {
+    0% {
+      border-color: var(--secondary-green);
+    }
+    50% {
+      border-color: #404142; /* Make border transparent halfway */
+    }
+    100% {
+      border-color: var(--secondary-green);
+    }
+  }
+    
+  .comp {
+    animation: slideDown 1s ease-in-out; /* Set animation duration, timing function */
+  }
+  
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%); /* Start off-screen above */
+      opacity: 0; /* Transparent initially */
+    }
+    to {
+      transform: translateY(0); /* Move to visible position */
+      opacity: 1; /* Fully opaque */
+    }
+  }
+  
+ul {
+    list-style-type: none;
+    padding-left: 0; /* Opcional: para eliminar el padding izquierdo */
+    margin-left: 0; /* Opcional: para eliminar el margen izquierdo */
+}
+
+.search-box{
+  border: 2px solid #14171A;
+}
+
+
+/* estilo para mantener fija la barra de busqueda cuando el scroll llegue a ella */
+.fixed {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+}
+
+
+/* estilos de movil --------------------------------------------------------------*/
+
+/* estilo de palabras clave*/
+.kay-mv{
+  font-weight: bold;
+  border:3px solid #02711e;
+  color: #fff;
+  background-color: #139b352d;
+  text-align: center;
+  font-size: 15px;
+}
+.key-end{
+ font-weight: bold;
+  border:3px solid #02711e;
+  color: #fff;
+  background-color: #139b352d;
+  text-align: center;
+}
+
+/*estilos de desplegables*/
+.togles{
+  color: #acaaaa;
+}
+
+/* estilos de locaciones e involucrados*/
+#locations, #involed {
+  color: #fff;
+}
+
+
+/* logos de entodades */
+.bi-bookmark{
+  color: var(--primary-green);
+}
+.bi-geo-alt{
+  color: var(--secondary-green);
+}
+.bi-person{
+  color: var(--deactive-green);
+}
+
+.nav-button{
+  color: #767575;
+  border-top: 1px solid #303030;
+  text-align: center;
+  background-color: black;
+}
+
+.btn-avtive{
+  color: var(--secondary-green);
+}
+.estadisticas{
+  margin-bottom: 100px;
+}
+
+.input-new{
+  background-color: rgba(0, 0, 0, 0.641);
+  border-radius: 80px;
+  font-size: 35px;
+  border-radius: 0%;
+  border-top: 0px ;
+  border-left: 0px ;
+  border-right: 0px;
+  border-bottom: 2px solid var(--primary-green) ;
+  width: 50%;
+}
+.input-new::placeholder{
+  color: #868585;
+  font-size: 35px;
+  text-align: center;
+}
+.input-new:hover{
+  border-bottom: 4px solid var(--primary-green) ;
+}
+
+textarea{
+  field-sizing:content;
+  outline: none; /* Elimina el borde predeterminado de enfoque */
+}
+/* Elimina el efecto de enfoque */
+textarea:focus {
+  outline: none; /* Asegura que no haya un borde extra al enfocar */
+  box-shadow: none; /* Elimina cualquier sombra de enfoque */
+}
+@media (max-width: 475px) {
+  .input-new {
+    font-size: 25px; /* Ajusta el tamaño de la fuente para dispositivos móviles */
+    width: 100%; /* Aumenta el ancho del input en móviles */
+    field-sizing:content;
+  }
+
+  .input-new::placeholder {
+    font-size: 25px; /* Asegúrate de que el tamaño del placeholder coincida con el del input */
+  }
+  
+}
+
+.box-searh-movile{
+  background-color: #000000;
+}
+
+#TrueMenu{
+  background-color: #000000;
+  border-right: 2px solid #404142;
+  color:#fff;
+  width: 80%;
+}
+
+.btn-menu{
+  border: 1px solid #474646;
+  border-radius: 5px;
+}
+.btn-menu:active {
+  border: 2px solid var(--secondary-green);
+  color: var(--secondary-green);
+}
+.btn-menu:hover {
+  border: 2px solid var(--secondary-green);
+  color: var(--secondary-green);
+}
