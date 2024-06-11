@@ -58,10 +58,13 @@ export class ValidViewComponent {
 
     // obteniendo el tamaño de pantalla 
     this.checkScreenSize();
+
+  
     
   }
 
   ngOnInit() {
+    
     this.valid.getNews(this.newInput).subscribe(
       response => {
         console.log('Response from API:', response);
@@ -117,6 +120,7 @@ export class ValidViewComponent {
         });
 
         this.allItems = [ ...this.itemsReddit,  ...this.itemsX, ...this.itemsRss];
+        
       },
       error => {
         console.error('Error from API:', error);
@@ -135,4 +139,8 @@ export class ValidViewComponent {
 
   // interactividad en movil 
   inMetrics:boolean=true;
+
+  // efecto veracidad
+  veracity:number=30.45
+  
 }

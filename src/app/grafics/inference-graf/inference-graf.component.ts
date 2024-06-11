@@ -26,11 +26,11 @@ export class InferenceGrafComponent {
 
   constructor() {
     this.chartOptions = {
-      series: [50, 30, 20],
+      series: [20, 50, 30],
       chart: {
         type: "donut"
       },
-      labels: ["Afirmacion", "Suposicion", "Negacion"],
+      labels: ["Statement", "Assumption", "Denial"],
       responsive: [
         {
           breakpoint: 480,
