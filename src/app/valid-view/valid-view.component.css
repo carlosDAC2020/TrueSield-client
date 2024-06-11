@@ -121,10 +121,10 @@ ul {
   color: var(--primary-green);
 }
 .bi-geo-alt{
-  color: var(--secondary-green);
+  color: var(--primary-green);
 }
 .bi-person{
-  color: var(--deactive-green);
+  color: var(--primary-green);
 }
 
 .nav-button{
@@ -191,7 +191,7 @@ textarea:focus {
   background-color: #000000;
   border-right: 2px solid #404142;
   color:#fff;
-  width: 80%;
+  width: 70%;
 }
 
 .btn-menu{
@@ -206,3 +206,96 @@ textarea:focus {
   border: 2px solid var(--secondary-green);
   color: var(--secondary-green);
 }
+
+.offcanvas-header{
+  
+}
+
+.user-true-logo{
+  font-size: 50px;
+}
+.role-user{
+  color: #767575;
+}
+.option-menu{
+  left: 30px;
+  color: #b4b4b4;
+  font-size: 30px;
+  font-weight: bold; 
+}
+.h-item{
+  color: #b4b4b4;
+  left: 5px;
+  border-radius: 15px;
+}
+
+.offcanvas-body {
+  overflow-y: auto; /* Añadir scroll en caso de que el contenido sea demasiado alto */
+}
+.news-list {
+  height: 50%; /* La lista ocupa el 50% de la altura del contenedor */
+  overflow-y: auto; /* Añadir scroll a la lista */
+}
+.h-item-active {
+  background-color: #474646;
+}
+
+.futer-menu{
+  background-color: #2b752cd3;
+  border-radius: 10px;
+}
+
+.veracity{
+  border:2px solid #767575;
+  border-radius: 100%;
+  height: 200px;
+  width: 200px;
+}
+
+.varacidad-alta {
+  border: 2px solid var(--primary-green);
+  position: relative;
+}
+
+.varacidad-media {
+  border: 2px solid #e6ea07;
+  position: relative;
+}
+
+.varacidad-baja {
+  border: 2px solid #de0000;
+  position: relative;
+}
+
+@keyframes loadingBorder {
+  0% {
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+  }
+  25% {
+    border-top-color: currentColor;
+  }
+  50% {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+  }
+  75% {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+  }
+  100% {
+    border-top-color: currentColor;
+    border-right-color: currentColor;
+    border-bottom-color: currentColor;
+    border-left-color: currentColor;
+  }
+}
+
+.animate-border {
+  animation: loadingBorder 3s linear forwards;
+}
+
+

@@ -3,7 +3,7 @@
 @defer{
 
     @if (isSmallScreen) {
-        <nav class="navbar sticky-top p-2">
+        <nav class="navbar p-2">
             <div class="container-fluid">
                 <div class="row w-100">
                     <div class="col d-flex justify-content-start align-items-center">
@@ -23,18 +23,62 @@
                 </div>
             </div>
         </nav>
-        
-
           
-          <div class="offcanvas offcanvas-start " tabindex="-1" id="TrueMenu" aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header mt-2 ">
-              <h1 class="offcanvas-title" id="offcanvasExampleLabel">
-                <i class="bi bi-person-circle user-true-logo me-1"></i>  User_UTB_01
-            </h1>
+          <div class="offcanvas offcanvas-start p-1" tabindex="-1" id="TrueMenu" aria-labelledby="offcanvasExampleLabel">
+            <div class="offcanvas-header mt-2 h-10">
+                <div class="row d-flex">
+                    <div class="col-4 d-flex justify-content-center  align-items-center">
+                        <i class="bi bi-person-circle user-true-logo "></i>
+                    </div>
+                    <div class="col-8  mt-2 ">
+                        <h2>User_UTB_01</h2>
+                        <h4 class="role-user">Student</h4>
+                    </div>
+                </div>
+              
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div>
-                <h2>Check news</h2>
+            <div class=" offcanvas-body p-3">            
+                <h1 class=" option-menu p-2">
+                    <i class="bi bi-shield-check me-3 fs-2  "></i> Check
+                </h1>
+                <h1 class=" option-menu p-2">
+                    <i class="bi bi-globe me-3 fs-2 "></i> Search
+                </h1>
+                <h3 class=" mt-3">History</h3>
+                <ul class="list-group list-group-flush p-1 news-list">
+                    
+                    <li>
+                        <h4 class="h-item h-item-active d-inline-flex p-2">{{newInput}}</h4>
+                    </li>
+                    <li>
+                        <h4 class="h-item d-inline-flex p-2">Ucrania Resiste: Contraataque en el Este del País</h4>
+                    </li>
+                    <li>
+                        <h4 class="h-item d-inline-flex p-2">Crisis Humanitaria en Ucrania: Millones de Desplazados</h4>
+                    </li>
+                    <li>
+                        <h4 class="h-item d-inline-flex p-2">Negociaciones de Paz: Sin Avances en las Conversaciones</h4>
+                    </li>
+                    <li>
+                        <h4 class="h-item d-inline-flex p-2">Sanciones Internacionales: Efectos Económicos en Rusia</h4>
+                    </li>
+                    <li>
+                        <h4 class="h-item d-inline-flex p-2">Apoyo Internacional: Nuevas Ayudas Militares a Ucrania</h4>
+                    </li>
+                    <li>
+                        <h4 class="h-item d-inline-flex p-2">Impacto Global: Precios del Gas y Alimentos en Alza</h4>
+                    </li>
+                    <li>
+                        <h4 class="h-item d-inline-flex p-2">Testimonios del Frente: Historias de Coraje y Resiliencia</h4>
+                    </li>
+                </ul>
+                <h1 class=" option-menu mt-3 p-2">
+                    <i class="bi bi-gear me-3 fs-2"></i> Setting
+                </h1>
+                <h1 class=" option-menu mt-3 futer-menu p-2">
+                    <i class="bi bi-rocket-takeoff me-3 fs-2"></i> Get Plan
+                </h1>    
             </div>
           </div>
 
@@ -46,7 +90,7 @@
                     <div class="estadisticas text-white mt-3 mb-5 p.2">
                         <div class="d-inline-flex gap-2 togles">
                             <h4 class="" data-bs-toggle="collapse" href="#keywords" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                <i class="bi bi-bookmark"></i> keywords
+                                <i class="bi bi-bookmark"></i> Keywords
                             </h4>
                             <h4 class="" data-bs-toggle="collapse" href="#locations" role="button" aria-expanded="false" aria-controls="collapseExample">
                                 <i class="bi bi-geo-alt"></i> Location
@@ -58,9 +102,9 @@
                         <div class="collapse" id="keywords">
                         <div class="card card-body">
                             <div class="row gap-2 ">
-                                <span class=" col badge rounded-pill kay-mv ">Invacion</span>
+                                <span class=" col badge rounded-pill kay-mv ">Invasion</span>
                                 <span class=" col badge rounded-pill kay-mv ">Invento</span>
-                                <span class=" col badge rounded-pill kay-mv ">Manipuñacion</span>
+                                <span class=" col badge rounded-pill kay-mv ">Manipulacion</span>
                                 <span class=" col badge rounded-pill kay-mv ">Guerra</span>
                                 <span class=" col badge rounded-pill kay-mv ">Rusia</span>
                             </div>
@@ -89,7 +133,18 @@
                         </div>
                         </div>
                         <h2 class="mt-3" >Veracity</h2>
-                        <h1 class="text-center display-5 ">56.5%</h1>
+                        <div class=" d-flex align-items-center justify-content-center ">
+                            <div 
+                            [ngClass]="{
+                                'varacidad-alta': veracity >= 50, 
+                                'varacidad-media': veracity <= 50 && veracity>=20,
+                                'varacidad-baja': veracity < 20
+                                }"
+                            class="veracity d-flex flex-column align-items-center justify-content-center .animate-border ">
+                                <h2 class="text-center display-1  ">{{ veracity }}%</h2>
+                            </div>
+                        </div>
+                        
                         <h2>Inference</h2>
                         <app-inference-graf class=" mt-2 "/>
                     </div>
@@ -132,7 +187,7 @@
                     (click)="inMetrics=true" 
                     [ngClass]="{'btn-avtive':inMetrics==true }">
                         <i class="bi bi-check2-circle display-5 "></i>
-                        <h5>Mtrics</h5>
+                        <h5>Metrics</h5>
                     </div>
                     <div class="col" 
                     (click)="inMetrics=false"
