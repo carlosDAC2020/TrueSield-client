@@ -10,6 +10,6 @@ export class ValidationNewsService {
   constructor(private http: HttpClient) { }
 
   getNews(prompt: string): Observable<any> {
-    return this.http.post<any>(`http://127.0.0.1:8000/valid_news/`, { 'prompt':prompt });
+    return this.http.post<any>(`https://trueshield-manager-server.onrender.com/valid_news/`, { 'prompt':prompt });
   }
 }

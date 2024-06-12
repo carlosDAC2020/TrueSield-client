@@ -81,9 +81,29 @@ p{
     border:4px solid var(--reddit-color);
 }
 
+
+.mtric-logo{
+    color:var(--primary-green);
+}
+
 .rdr-x:hover{
     border:4px solid var(--x-color);
 }
 .rdr-rss:hover{
     border:4px solid var(--rss-color);
+}
+.levels{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+}
+
+.level-up{
+    border:2px solid var(--primary-green)
+}
+.level-mid{
+    border: 2px solid #e5e205;
+}
+.level-dawn{
+    border: 2px solid #e51f05;
 }

@@ -298,4 +298,10 @@ textarea:focus {
   animation: loadingBorder 3s linear forwards;
 }
 
+.item-filter{
+  color: #868585;
+}
 
+.separador{
+  height: 90px;
+}

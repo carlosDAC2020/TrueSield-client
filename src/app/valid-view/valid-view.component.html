@@ -15,7 +15,7 @@
                     </div>
                     <div class="col d-flex justify-content-end align-items-center">
                         <a class="text-white  d-flex justify-content-center align-items-center mt-2" data-bs-toggle="offcanvas" href="#TrueMenu" role="button" aria-controls="offcanvasExample">
-                            <h1 class="btn-menu p-1"
+                            <h1 class="btn-menu p-1 "
                             ><i class="bi bi-list "></i>
                             </h1>
                         </a>
@@ -147,40 +147,72 @@
                         
                         <h2>Inference</h2>
                         <app-inference-graf class=" mt-2 "/>
-                    </div>
+                    </div>   
                 }
                 @else {
                     <div class="items text-white ">
                         <div class="p-2 sticky-top box-searh-movile mb-1">
                             <div class="d-inline-flex gap-4 togles text-white mt-1">
-                                <h4 class="">
-                                    <i class="bi bi-rss-fill"></i> 20
+                                <h4 
+                                    (click)="activeFilterType(1)"
+                                    [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
+                                    >
+                                    <i 
+                                    [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
+                                    class="bi bi-rss-fill "></i> 20
                                 </h4>
-                                <h4 class="" >
-                                    <i class="bi bi-twitter-x"></i> 10
+                                <h4 
+                                    (click)="activeFilterType(2)"
+                                    [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
+                                    >
+                                    <i 
+                                    [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
+                                    class="bi bi-twitter-x "></i> 10
                                 </h4>
-                                <h4 class="">
-                                    <i class="bi bi-reddit"></i> 10
+                                <h4 
+                                    (click)="activeFilterType(3)"
+                                    [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
+                                    >
+                                    <i 
+                                    [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
+                                    class="bi bi-reddit "></i> 10
                                 </h4>
                             </div>
                             <textarea 
-                              class="form-control input-new text-white " 
-                              placeholder="Search By Text"
+                                [(ngModel)]="textSearch"
+                                (input)="filterByText()"
+                                class="form-control input-new text-white " 
+                                placeholder="Search By Text"
                            ></textarea>
+                           <h4 
+                           *ngIf="textSearch.length>0"
+                           class="mt-2 item-filter"
+                           >Results {{filteredModels.length}} of {{allItems.length}}</h4>
                         </div>
                         <div class="row ">
-                            <app-item-new
+                            @if (filteredModels.length > 0) {
+                                <app-item-new
+                                *ngFor="let item of filteredModels"
+                                [itemNew]="item"
+                                [isValid]="true"
+                                />
+                            }
+                            @else {
+                                <app-item-new
                                 *ngFor="let item of allItems"
                                 [itemNew]="item"
                                 [isValid]="true"
                                 />
+                            }
                         </div>
                     </div>
                 }
                 
     
                 
-                
+                <div class="row separador w-100  p-2">
+                    
+                </div>
                 <div class="row nav-button w-100 fixed-bottom p-2">
                     <div 
                     class="col" 

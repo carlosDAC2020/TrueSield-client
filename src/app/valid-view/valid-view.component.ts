@@ -13,6 +13,7 @@ import { ItemRss, ItemX, ItemReddit } from '../models/models';
 
 // servicios 
 import { ValidationNewsService } from '../services/validation-news.service';
+import { FilterListService } from '../services/filter-list.service';
 
 @Component({
   selector: 'app-valid-view',
@@ -45,7 +46,10 @@ export class ValidViewComponent {
     ];
   
 
-  constructor(private route: ActivatedRoute, private valid: ValidationNewsService) {
+  constructor(
+    private route: ActivatedRoute, 
+    private valid: ValidationNewsService,
+    private modelFilterService: FilterListService) {
 
     // obtencion del prompt 
     this.route.params.subscribe(params => {
@@ -137,10 +141,78 @@ export class ValidViewComponent {
     this.isSmallScreen = window.innerWidth <= 780;
   }
 
-  // interactividad en movil 
+  // interactividad en movil -------------------------------------------------------------------
   inMetrics:boolean=true;
 
   // efecto veracidad
   veracity:number=30.45
   
+
+  // manejo de filtrado de items 
+    // filtrado por texto
+  filteredModels: Array<ItemRss | ItemReddit | ItemX> = [];
+  textSearch:string="";
+  filterByText(): void {
+    this.filteredModels = this.modelFilterService.filterByStringAttributes(this.allItems, this.textSearch);
+    console.log("filtrado: ", this.filteredModels)
+  }
+
+    // filtrado por ietm
+  typeItemFilter:string[]=["rss", "reddit", "x"];
+  isfilterRss:number=1;
+  isfilterReddit:number=1;
+  isfilterX:number=1;
+  filterByType(): void {
+    this.filteredModels = this.modelFilterService.filterByModelType(this.allItems, this.typeItemFilter);
+    console.log("filtrado: ", this.filteredModels)
+  }
+  activeFilterType(type:number):void {
+    if (type==1) {
+      if (this.isfilterRss==1) {
+        const index = this.typeItemFilter.indexOf("rss");
+        if (index !== -1) {
+          this.typeItemFilter.splice(index, 1);
+        }
+        this.isfilterRss=0
+      }
+      else{
+        if (!this.typeItemFilter.includes("rss")) {
+          this.typeItemFilter.push("rss");
+        }
+        this.isfilterRss=1
+      }
+    }
+    else if(type==2){
+      if (this.isfilterX==1) {
+        const index = this.typeItemFilter.indexOf("x");
+        if (index !== -1) {
+          this.typeItemFilter.splice(index, 1);
+        }
+        this.isfilterX=0
+      }
+      else{
+        if (!this.typeItemFilter.includes("x")) {
+          this.typeItemFilter.push("x");
+        }
+        this.isfilterX=1
+      }
+    }
+    else{
+      if (this.isfilterReddit==1) {
+        const index = this.typeItemFilter.indexOf("reddit");
+        if (index !== -1) {
+          this.typeItemFilter.splice(index, 1);
+        }
+        this.isfilterReddit=0
+      }
+      else{
+        if (!this.typeItemFilter.includes("reddit")) {
+          this.typeItemFilter.push("reddit");
+        }
+        this.isfilterReddit=1
+      }
+    }
+    console.log(this.typeItemFilter)
+    this.filterByType()
+  }
 }
