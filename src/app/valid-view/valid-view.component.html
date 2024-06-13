@@ -232,7 +232,7 @@
         </div>
     }
     @if (!isSmallScreen) {
-        <nav class="navbar  p-2">
+        <nav class="navbar  p-2 fixed-top">
             <div class="container-fluid row ">
                 <div class="col justify-content-between align-items-center">
                     <a href="">
@@ -249,66 +249,104 @@
                     @defer{
                         <div class=" p-2 text-white ">
                             <h1 class="comp ml-2">{{newInput}}</h1>
-                            <div class="row g-2 d-flex justify-content-start mt-4 mb-3 comp">
-                                <div class="col-2 d-flex justify-content-center align-items-center key-word m-1 p-1">
-                                    <h4>
-                                        Invacion
-                                    </h4>
+                            <div class="d-inline-flex gap-3 togles">
+                                <h3>
+                                    <i class="bi bi-calendar"></i> 2024-06-3
+                                </h3>
+                                <h3 class="cart" data-bs-toggle="collapse" href="#keywords" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="bi bi-bookmark"></i> Keywords
+                                </h3>
+                                <h3 class="cart" data-bs-toggle="collapse" href="#locations" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="bi bi-geo-alt"></i> Location
+                                </h3>
+                                <h3 class="cart" data-bs-toggle="collapse" href="#involed" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <i class="bi bi-person"></i> Involved
+                                </h3>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="collapse" id="keywords">
+                                        <div class="card card-body d-flex flex-column align-items-center justify-content-center p-3">
+                                            <div class="row gap-1 ">
+                                                <span class=" col-5 badge rounded-pill kay-mv ">Invasion</span>
+                                                <span class=" col-5 badge rounded-pill kay-mv ">Invento</span>
+                                                <span class=" col-5 badge rounded-pill kay-mv ">Manipulacion</span>
+                                                <span class=" col-5 badge rounded-pill kay-mv ">Guerra</span>
+                                                <span class=" col-5 badge rounded-pill kay-mv ">Rusia</span>
+                                            </div>
+                                        </div>
+                                        </div>
                                 </div>
-                                <div class="col-2 key-word m-1 p-1 d-flex justify-content-center align-items-center">
-                                    <h4>
-                                        Invento
-                                    </h4>
+                                <div class="col">
+                                    <div class="collapse" id="locations">
+                                        <div class="card card-body d-flex flex-column align-items-center justify-content-center">
+                                            <div class="d-inline-flex gap-2">
+                                                <h5 class="">Ucrania</h5> / 
+                                                <h5 class="">Rusia</h5>            
+                                            </div>
+                                        </div>
+                                        </div>
                                 </div>
-                                <div class="col-3 key-word m-1 p-1 d-flex justify-content-center align-items-center">
-                                    <h4>
-                                        Manipuñacion
-                                    </h4>
-                                </div>
-                                <div class="col-2 key-word m-1 p-1 d-flex justify-content-center align-items-center">
-                                    <h4>
-                                        Guerra
-                                    </h4>
+                                <div class="col">
+                                    <div class="collapse" id="involed">
+                                        <div class="card card-body d-flex flex-column align-items-center justify-content-center">
+                                            <div class="">
+                                                <h5 class="">Volodymyr Zelenskyy</h5>
+                                                <h5 class="">Vladimir Putin</h5>
+                                                <h5 class="">Joe Biden</h5>   
+                                                <h5 class="">Jens Stoltenberg</h5>    
+                                                <h5 class="">António Guterres</h5>    
+                                                <h5 class="">Charles Michel</h5>        
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <ul class="row d-flex  ml-2 comp mt-3">
-                                <li class="col-3 entiti">
-                                    <h4>
-                                        <i class="bi bi-calendar"></i> 2024-06-3
-                                    </h4>
-                                </li>
-                                <li class="col-3 entiti">
-                                    <h4>
-                                        <i class="bi bi-geo-alt"></i> Ucrania
-                                    </h4>
-                                </li>
-                                <li class="col-3 entiti">
-                                    <h4>
-                                        <i class="bi bi-person"></i> Personas
-                                    </h4>
-                                </li>
-                            </ul>  
+                            
                             <div class=" search-box p-3 m-1 ">
-                                <ul class="row d-flex  ml-2 comp ">
+                                <ul class="row d-flex  ml-2 ">
                                     <li class="col-6 entiti">
                                         <textarea 
+                                        [(ngModel)]="textSearch"
+                                        (input)="filterByText()"
                                         class="form-control input-new text-white w-100" 
                                         placeholder="Search By Text"
                                         ></textarea>
+                                        <h4 
+                                            *ngIf="textSearch.length>0"
+                                            class="mt-2 item-filter"
+                                            >Results {{filteredModels.length}} of {{allItems.length}}
+                                        </h4>
                                     </li>
-                                    <li class="col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                                        <h1>
-                                            <i class="bi bi-rss-fill"></i> 20
+                                    <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
+                                        <h1 
+                                    (click)="activeFilterType(1)"
+                                    [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
+                                    >
+                                    <i 
+                                    [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
+                                    class="bi bi-rss-fill "></i> 20
                                         </h1>
                                     </li>
-                                    <li class="col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                                        <h1>
-                                            <i class="bi bi-twitter-x"></i> 10
+                                    <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
+                               
+                                        <h1 
+                                    (click)="activeFilterType(2)"
+                                    [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
+                                    >
+                                    <i 
+                                    [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
+                                    class="bi bi-twitter-x "></i> 10
                                         </h1>
                                     </li>
-                                    <li class="col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                                        <h1>
-                                            <i class="bi bi-reddit"></i> 10
+                                    <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
+                                        <h1 
+                                    (click)="activeFilterType(3)"
+                                    [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
+                                    >
+                                    <i 
+                                    [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
+                                    class="bi bi-reddit "></i> 10
                                         </h1>
                                     </li>
                                 </ul>  
@@ -326,11 +364,20 @@
                     @defer{
                         <div class=" p-2 text-white mt-2 comp">
                             <div class="row row-cols-lg-2">
+                                @if (filteredModels.length > 0) {
                                 <app-item-new
+                                *ngFor="let item of filteredModels"
+                                [itemNew]="item"
+                                [isValid]="true"
+                                />
+                                }
+                                @else {
+                                    <app-item-new
                                     *ngFor="let item of allItems"
                                     [itemNew]="item"
                                     [isValid]="true"
                                     />
+                                }
                             </div>
                         </div>
                     }
@@ -342,13 +389,21 @@
                 </div>
         
                 @defer{
-                    <div class="col-4 card p-3 text-white comp"  >
-                        <h2>Veracidad</h2>
-                        <h1 class="text-center">56.5%</h1>
-                        <h2>Inferencia</h2>
+                    <div class="col-4 card p-3 text-white comp results position-fixed"  >
+                        <h2>Veracity</h2>
+                        <div class=" d-flex align-items-center justify-content-center ">
+                            <div 
+                            [ngClass]="{
+                                'varacidad-alta': veracity >= 50, 
+                                'varacidad-media': veracity <= 50 && veracity>=20,
+                                'varacidad-baja': veracity < 20
+                                }"
+                            class="veracity d-flex flex-column align-items-center justify-content-center .animate-border ">
+                                <h4 class="text-center display-4  ">{{ veracity }}%</h4>
+                            </div>
+                        </div>
+                        <h2>Inference</h2>
                         <app-inference-graf/>
-                        <h2>Interacciones</h2>
-                        <app-interactions-graf/>
                     </div>
                 }
                 @placeholder (minimum 1s) {

@@ -29,9 +29,9 @@ resource "aws_key_pair" "my_key_pair" {
 }
 
 # Definición de un grupo de seguridad para la instancia
-resource "aws_security_group" "trueshield_sg" {
+resource "aws_security_group" "trueshield" {
   # Nombre del grupo de seguridad
-  name        = "trueshield_sg"            
+  name        = "trueshield"            
   # Descripción del grupo de seguridad  
   description = "Security group for instances of ti proyect"  
 

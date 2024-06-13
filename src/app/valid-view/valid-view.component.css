@@ -86,6 +86,10 @@ ul {
 }
 
 
+.section-desktop{
+  margin-top: 70px;
+}
+
 /* estilos de movil --------------------------------------------------------------*/
 
 /* estilo de palabras clave*/
@@ -96,6 +100,9 @@ ul {
   background-color: #139b352d;
   text-align: center;
   font-size: 15px;
+}
+.cart:hover{
+  color: var(--primary-green);
 }
 .key-end{
  font-weight: bold;
@@ -117,6 +124,9 @@ ul {
 
 
 /* logos de entodades */
+.bi-calendar{
+  color: var(--primary-green);
+}
 .bi-bookmark{
   color: var(--primary-green);
 }
@@ -144,7 +154,7 @@ ul {
 .input-new{
   background-color: rgba(0, 0, 0, 0.641);
   border-radius: 80px;
-  font-size: 35px;
+  font-size: 25px;
   border-radius: 0%;
   border-top: 0px ;
   border-left: 0px ;
@@ -154,7 +164,7 @@ ul {
 }
 .input-new::placeholder{
   color: #868585;
-  font-size: 35px;
+  font-size: 25px;
   text-align: center;
 }
 .input-new:hover{
@@ -207,9 +217,7 @@ textarea:focus {
   color: var(--secondary-green);
 }
 
-.offcanvas-header{
-  
-}
+
 
 .user-true-logo{
   font-size: 50px;
@@ -304,4 +312,13 @@ textarea:focus {
 
 .separador{
   height: 90px;
+}
+
+.flt{
+  cursor: pointer; 
+}
+
+.results{
+  overflow-y: auto;
+  right:0;
 }
