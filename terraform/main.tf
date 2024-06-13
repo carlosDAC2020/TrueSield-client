@@ -80,7 +80,7 @@ resource "aws_instance" "angular_client" {
   # Nombre de la clave SSH a asociar    
   key_name        = aws_key_pair.my_key_pair.key_name  
   # Grupo de seguridad asociado
-  security_groups = [ aws_security_group.trueshield_sg.name ]  
+  security_groups = [ aws_security_group.trueshield.name ]  
   # Etiqueta de la instancia
   tags = {
     Name = "angular-client"                      
