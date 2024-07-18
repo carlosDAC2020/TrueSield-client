@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ApiFnkService } from './api-fnk.service';
+import { UserService } from './user.service';
 
-describe('ApiFnkService', () => {
-  let service: ApiFnkService;
+describe('UserService', () => {
+  let service: UserService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(ApiFnkService);
+    service = TestBed.inject(UserService);
   });
 
   it('should be created', () => {

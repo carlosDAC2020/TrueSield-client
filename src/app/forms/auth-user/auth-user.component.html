@@ -1,0 +1,91 @@
+<div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow formUser">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2"> <i class="bi bi-shield-fill-check"></i> 
+          @if(isRegister){
+            Register
+          }
+          @else {
+            Login
+          }
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">X</button>
+      </div>
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          @if (isRegister) {
+            <div class=" mb-3">
+              <input 
+              [(ngModel)]="auth.first_name"
+              name="first_name"
+              type="text" class="form-control " placeholder="First Name" required>
+            </div>
+            <div class=" mb-3">
+              <input 
+              [(ngModel)]="auth.last_name"
+              name="last_name"
+              type="text" class="form-control " placeholder="Last Name" required>
+            </div>
+            <div class=" mb-3">
+              <input 
+              [(ngModel)]="auth.email"
+              name="email"
+              type="email" class="form-control " placeholder="Email" required>
+            </div>
+          }
+          <div class=" mb-3">
+            <input 
+            [(ngModel)]="auth.username"
+            name="username"
+            type="text" class="form-control " placeholder="UserName" required>
+          </div>
+          <div class=" mb-3">
+            <input 
+            [(ngModel)]="auth.password"
+            name="password"
+            type="password" class="form-control " placeholder="Password" required>
+          </div>
+          @if (isRegister) {
+            <div class=" mb-3">
+              <input 
+              [(ngModel)]=" rep_password"
+              name="rep_password"
+              type="password" class="form-control " placeholder="Repeat Password" required>
+            </div>
+            @if (rep_password!=auth.password) {
+              <span class="danger">
+                <i class="bi bi-x-circle me-2 "></i>Password does not match
+              </span>
+            }
+            <p>{{rep_password}} {{auth.password}}</p>
+          }
+          
+          <div class="row ">
+            @if (!isRegister) {
+              <div class="col mt-3">
+                <button 
+                  (click)="login()"
+                  class="w-100  p-2 btn-lg rounded-3 btn-first"
+                  >Sign In</button>
+              </div>
+            }
+            <div class="col mt-3">
+              <button 
+              (click)="register()"
+              class="w-100  p-2 btn-lg rounded-3 btn-second"
+              >Register</button>
+            </div>
+          </div>
+
+          
+          
+          
+          <hr class="my-4">
+          <h4 class=" fw-bold mb-3">Starts session with </h4>
+          <button class="w-100 py-2 mb-2 p-2 btn btn-outline-secondary rounded-3" type="submit">
+            <i class="bi bi-google me-2"></i> Google 
+          </button>
+        </form>
+      </div>
+    </div>
+</div>

@@ -8,6 +8,7 @@ import {FormsModule} from "@angular/forms"
 
 // componentes 
 import {ItemNewComponent} from '../item-new/item-new.component'
+import { AuthUserComponent } from '../forms/auth-user/auth-user.component';
 
 // modelos 
 import {ItemReddit, ItemRss, ItemX} from '../models/models'
@@ -16,7 +17,7 @@ import {ItemReddit, ItemRss, ItemX} from '../models/models'
 @Component({
   selector: 'app-index-view',
   standalone: true,
-  imports: [CommonModule, FormsModule, ItemNewComponent, HttpClientModule],
+  imports: [CommonModule, FormsModule, ItemNewComponent, AuthUserComponent, HttpClientModule],
   templateUrl: './index-view.component.html',
   styleUrl: './index-view.component.css'
 })

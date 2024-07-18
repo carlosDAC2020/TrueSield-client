@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SearchNewsViewComponent } from './search-news-view.component';
+import { MenuActionsComponent } from './menu-actions.component';
 
-describe('SearchNewsViewComponent', () => {
-  let component: SearchNewsViewComponent;
-  let fixture: ComponentFixture<SearchNewsViewComponent>;
+describe('MenuActionsComponent', () => {
+  let component: MenuActionsComponent;
+  let fixture: ComponentFixture<MenuActionsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SearchNewsViewComponent]
+      imports: [MenuActionsComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SearchNewsViewComponent);
+    fixture = TestBed.createComponent(MenuActionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

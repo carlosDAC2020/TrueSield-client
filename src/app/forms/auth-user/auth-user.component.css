@@ -1,0 +1,42 @@
+
+
+.formUser{
+    background-color: black;
+    color: aliceblue;
+    border: 2px solid rgb(73, 70, 70);
+}
+
+.btn-close{
+    color: aliceblue;
+    font-size: 30px;
+    text-align: center;
+    justify-content: center;
+}
+
+.form-control {
+    border: 0;
+    background-color: black;
+    color: #868585;
+    font-size: 25px;
+    border-bottom: 2px solid var(--primary-green) ;
+}
+.form-control::placeholder{
+    color: #868585;
+    font-size: 25px;
+}
+.form-control:hover{
+border-bottom: 4px solid var(--primary-green) ;
+}
+
+.form-control:focus {
+    outline: none; /* Asegura que no haya un borde extra al enfocar */
+    box-shadow: none; /* Elimina cualquier sombra de enfoque */
+}
+
+.btn-outline-secondary{
+    font-size: 25px;
+}
+
+.btn-outline-secondary:hover{
+    background-color: var(--secondary-green);
+}

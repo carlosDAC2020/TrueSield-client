@@ -1,18 +1,17 @@
 import { Routes } from '@angular/router';
+import { AuthGuard } from './services/auth/auth.guard';
 // vistas
 import {IndexViewComponent} from './index-view/index-view.component'
-import {ValidViewComponent} from './valid-view/valid-view.component'
-import {SearchNewsViewComponent} from './search-news-view/search-news-view.component'
+import { HomeComponent } from './home/home.component';
+
 
 export const routes: Routes = [
     { path: 'index', 
-        component: IndexViewComponent,
-        data: {animation: 'IndexPage'}},
-    { path: 'validation', 
-        component: ValidViewComponent,
-        data: {animation: 'ValidPage'} },
-    { path: 'news-now', 
-        component: SearchNewsViewComponent,
-        data: {animation: 'SearchPage'} },
-    { path: '', redirectTo: '/index', pathMatch: 'full' } 
+        component: IndexViewComponent, 
+        data: { animation: 'IndexPage' }},
+    { path: 'home', 
+        component: HomeComponent, 
+        canActivate: [AuthGuard], 
+        data: { animation: 'HomePage' }},
+    { path: '', redirectTo: '/index', pathMatch: 'full' }
 ];

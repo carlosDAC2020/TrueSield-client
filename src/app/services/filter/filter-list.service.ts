@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ItemReddit, ItemRss, ItemX } from '../models/models';
+import { ItemReddit, ItemRss, ItemX } from '../../models/models';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +32,6 @@ export class FilterListService {
 
     const lowerCaseTypes = types.map(type => type.toLowerCase());
 
-    return models.filter(model => lowerCaseTypes.includes(model.type_item.toLowerCase()));
+    return models.filter(model => lowerCaseTypes.includes(model.Type_item.toLowerCase()));
   }
 }

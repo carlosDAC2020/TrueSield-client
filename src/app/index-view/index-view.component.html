@@ -1,20 +1,23 @@
 
-<!--
-<header class="d-flex justify-content-center py-3 nav-container fixed-top ">
-    <ul class="nav nav-pills ">
-    <li class="nav-item"><a href="#" 
-    class="nav-link">Home</a></li>
-    <li class="nav-item"><a href="#news-now" class="nav-link">News Now</a></li>
-    <li class="nav-item"><a href="#" class="nav-link">About</a></li>
-    <li class="nav-item"><a href="#fonts-info" class="nav-link">Media</a></li>
-    <li class="nav-item"><a href="#blog" class="nav-link">Blog</a></li>
-    </ul>
-</header>
 
--->
+
 
 
 @defer{
+
+  <header class=" py-3 nav-container fixed-top ">
+    <div class="float-end me-3 mt-2">
+      <button 
+        type="button" class=" me-3 btn-first p-2" data-bs-toggle="modal" data-bs-target="#formUser">
+        Sign-In 
+      </button>
+    </div>
+  </header>
+
+  <div class="modal fade" id="formUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-auth-user/>
+  </div>
+
   <section class=" text-center w-100 h-100 " >
   
     <video muted autoplay loop [src]="currentVideoUrl" ></video>
@@ -79,6 +82,11 @@
         </div>
     </div>
         
+  </section>
+
+  <section class="w-100 h-100">
+
+
   </section>
 
 }

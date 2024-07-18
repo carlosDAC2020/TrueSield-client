@@ -1,0 +1,26 @@
+<div class="offcanvas offcanvas-start p-1" tabindex="-1" id="TrueMenu" aria-labelledby="offcanvasExampleLabel">
+    <div class="d-flex justify-content-center mt-4">
+        <h3><i class="bi bi-shield-fill-check me-2"></i> TrueShield</h3>
+    </div>
+    
+    <div class=" offcanvas-body p-3">            
+        <h2 
+            class=" option-menu p-2"
+            (click)="newValidate()">
+            <i class="bi bi-shield-check me-3 fs-2 "></i>Check
+        </h2>
+        <h1 class=" option-menu p-2">
+            <i class="bi bi-globe me-3 fs-2 "></i>Search
+        </h1>
+        <h3 class=" mt-3">History</h3>
+        <ul class="list-group list-group-flush p-1 news-list">
+            <li 
+                *ngFor="let valid of validations"
+                (click)="validateDetail(valid.id)"
+                >
+                <h4 class="h-item d-inline-flex p-2">{{valid.prompt}}</h4>
+            </li>
+        </ul>
+         
+    </div>
+</div>

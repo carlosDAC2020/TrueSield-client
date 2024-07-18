@@ -1,38 +1,37 @@
 export class ItemRss {
-    id?: number;
-    type_item:string="rss";
-    page?: string;
-    datePub?: string;
-    title?:string;
-    autor?:string;
-    interctions?:number;
-    bodyText?:string;
+    Id?: number;
+    Type_item:string="rss";
+    Page?: string;
+    DatePublication?: string;
+    Title?:string;
+    Autor?:string;
+    Tnterctions?:number;
+    BodyText?:string;
     Summary?:string;
-    urlAticle?:string;
+    UrlAticle?:string;
 
 }
 
 export class ItemReddit {
-    id?: number;
-    type_item:string="reddit";
-    datePub?: string;
-    nameProfile?: string;
-    titlePub?: string;
-    textPub?: string;
+    Id?: number;
+    Type_item:string="reddit";
+    DatePub?: string;
+    NameProfile?: string;
+    TitlePub?: string;
+    TextPub?: string;
     CantUpVotes?: number;
     CantDownVotes?: number;
     CantShares?: number;
 }
 
 export class ItemX{
-    id?:number;
-    type_item:string="x";
-    datePub?:string;
-    userPorifle?:string;
-    nameProfile?:string;
-    textPub?:string;
-    cantLkes?:number;
-    canRetwits?:number;
-    cantComents?:number;
+    Id?:number;
+    Type_item:string="x";
+    DatePub?:string;
+    UserPorifle?:string;
+    NameProfile?:string;
+    TextPub?:string;
+    CantLikes?:number;
+    CantRetweets?:number;
+    CantComents?:number;
 }
-

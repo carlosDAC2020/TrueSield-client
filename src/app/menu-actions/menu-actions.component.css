@@ -1,0 +1,56 @@
+#TrueMenu{
+    background-color: #000000;
+    border-right: 2px solid #404142;
+    color:#fff;
+    width: 30%;
+  }
+.user-true-logo{
+    font-size: 50px;
+  }
+  .role-user{
+    color: #767575;
+  }
+  .option-menu{
+    left: 50px;
+    color: #e6e3e3;
+    font-size: 30px;
+    font-weight: bold; 
+    cursor: pointer;
+  }
+  .h-item{
+    color: #b4b4b4;
+    left: 5px;
+    border-radius: 15px;
+    cursor: pointer;
+  }
+  .h-item:hover{
+    background-color: #383737;
+  }
+  
+  .offcanvas-body {
+    overflow-y: auto; /* Añadir scroll en caso de que el contenido sea demasiado alto */
+   
+  }
+  .news-list {
+    height: 70%; /* La lista ocupa el 50% de la altura del contenedor */
+    overflow-y: auto; /* Añadir scroll a la lista */
+  }
+  .h-item-active {
+    background-color: #474646;
+  }
+  
+  .futer-menu{
+    background-color: #2b752cd3;
+    border-radius: 10px;
+  }
+  
+.opt-check-icon{
+  
+}
+
+@media (max-width: 475px) {
+  #TrueMenu{
+    width: 80%;
+  }
+}
+

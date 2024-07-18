@@ -73,7 +73,7 @@ ul {
 }
 
 .search-box{
-  border: 2px solid #14171A;
+  /*border: 2px solid #14171A;*/
 }
 
 
@@ -249,58 +249,33 @@ textarea:focus {
 }
 
 .futer-menu{
-  background-color: #2b752cd3;
+  background-color: #686868d3;
   border-radius: 10px;
 }
 
 .veracity{
-  border:2px solid #767575;
+  border:10px solid var(--primary-green);
   border-radius: 100%;
   height: 200px;
   width: 200px;
 }
 
 .varacidad-alta {
-  border: 2px solid var(--primary-green);
+  border: 10px solid var(--primary-green);
   position: relative;
 }
 
 .varacidad-media {
-  border: 2px solid #e6ea07;
+  border: 10px solid #e6ea07;
   position: relative;
 }
 
 .varacidad-baja {
-  border: 2px solid #de0000;
+  border: 10px solid #de0000;
   position: relative;
 }
 
-@keyframes loadingBorder {
-  0% {
-    border-top-color: transparent;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-  }
-  25% {
-    border-top-color: currentColor;
-  }
-  50% {
-    border-top-color: currentColor;
-    border-right-color: currentColor;
-  }
-  75% {
-    border-top-color: currentColor;
-    border-right-color: currentColor;
-    border-bottom-color: currentColor;
-  }
-  100% {
-    border-top-color: currentColor;
-    border-right-color: currentColor;
-    border-bottom-color: currentColor;
-    border-left-color: currentColor;
-  }
-}
+
 
 .animate-border {
   animation: loadingBorder 3s linear forwards;
@@ -322,3 +297,4 @@ textarea:focus {
   overflow-y: auto;
   right:0;
 }
+
