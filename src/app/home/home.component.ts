@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from "@angular/forms";
 import { Router } from '@angular/router';
@@ -19,6 +19,9 @@ import { ValidViewComponent } from '../valid-view/valid-view.component';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
+
+    // Manejo de renderizado según el tamaño de dispositivo
+  isSmallScreen!: boolean;
 
     // estado de validacion y de vista de detalles
     isValid:boolean=false;
@@ -45,8 +48,16 @@ export class HomeComponent {
           console.error(error);
         }
       );
+
+      // Obteniendo el tamaño de pantalla
+      this.checkScreenSize();      
     }
 
+
+    checkScreenSize() {
+      this.isSmallScreen = window.innerWidth <= 780;
+    }
+    
     validateNews(){
       this.isValid = true;
       this.inHome = false

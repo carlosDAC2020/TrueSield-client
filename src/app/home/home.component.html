@@ -44,54 +44,61 @@
             />
         }
         @if(inHome) {
-            <div class="initial-valid p-2 ">
-                <h1><i class="bi bi-shield-check"></i></h1>
-                <h1>Example of news to validate </h1>
-                <div class="row gap-3 mt-3 view">
-                    <div class="col ">
-                        <p class="example-new  p-3">
-                            Avances en la Inteligencia Artificial Revolucionan la Medicina Moderna
-                            Científicos desarrollan un nuevo algoritmo que mejora significativamente el diagnóstico temprano de enfermedades crónicas.
-                        </p>
-                    </div>
-                    <div class="col ">
-                        <p class="example-new p-3 view">
-                            Histórico Acuerdo Climático Logrado en la Cumbre Mundial
-                            Líderes globales se comprometen a reducir las emisiones de carbono en un 50% para 2030.
-                        </p>
-                    </div>
-                    <div class="col ">
-                        <p class="example-new p-3 view">
-                            Descubrimiento Arqueológico Sorprende a los Expertos en Egipto
-                            Se revela una nueva tumba faraónica con tesoros intactos que datan de más de 3,000 años.
-                        </p>
-                    </div>
-                </div>
-                <div class="row mb-3 w-70">
-                    <div class="col">
-                        <textarea 
-                        [(ngModel)]="inputNew"
-                        class="form-control input-new text-white mt-3"
-                        placeholder="Validate a new"
-                        ></textarea>
-                    </div>
-                </div>
-                @if (inputNew.length>0 && inputNew.length<60) {
-                    <h3><span class="danger">{{inputNew.length}}</span> of <span class="active mb-4">60</span> minimum number of characters for validation</h3>
-                }
-                @else if (inputNew.length>60) {
-                    <button 
-                    (click)="validateNews()"
-                    type="button" class=" me-3 btn-first p-2 mb-4" data-bs-toggle="modal" data-bs-target="#formUser">
-                    Validate 
-                    
-                    </button>
-                }
-            </div>
 
-            <div class="box-search ">
-
-            </div>
+            @if (isSmallScreen) {
+                <div class="initial-valid p-2 ">
+                    <h1><i class="bi bi-shield-check" style="margin-top:50px;"></i></h1>
+                    <h1>Mobile</h1>
+                   
+                </div>
+            }
+            @else{
+                <div class="initial-valid p-2 ">
+                    <h1><i class="bi bi-shield-check"></i></h1>
+                    <h1>Example of news to validate </h1>
+                    <div class="row gap-3 mt-3 view">
+                        <div class="col ">
+                            <p class="example-new  p-3">
+                                Avances en la Inteligencia Artificial Revolucionan la Medicina Moderna
+                                Científicos desarrollan un nuevo algoritmo que mejora significativamente el diagnóstico temprano de enfermedades crónicas.
+                            </p>
+                        </div>
+                        <div class="col ">
+                            <p class="example-new p-3 view">
+                                Histórico Acuerdo Climático Logrado en la Cumbre Mundial
+                                Líderes globales se comprometen a reducir las emisiones de carbono en un 50% para 2030.
+                            </p>
+                        </div>
+                        <div class="col ">
+                            <p class="example-new p-3 view">
+                                Descubrimiento Arqueológico Sorprende a los Expertos en Egipto
+                                Se revela una nueva tumba faraónica con tesoros intactos que datan de más de 3,000 años.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row mb-3 w-70">
+                        <div class="col">
+                            <textarea 
+                            [(ngModel)]="inputNew"
+                            class="form-control input-new text-white mt-3"
+                            placeholder="Validate a new"
+                            ></textarea>
+                        </div>
+                    </div>
+                    @if (inputNew.length>0 && inputNew.length<60) {
+                        <h3><span class="danger">{{inputNew.length}}</span> of <span class="active mb-4">60</span> minimum number of characters for validation</h3>
+                    }
+                    @else if (inputNew.length>60) {
+                        <button 
+                        (click)="validateNews()"
+                        type="button" class=" me-3 btn-first p-2 mb-4" data-bs-toggle="modal" data-bs-target="#formUser">
+                        Validate 
+                        
+                        </button>
+                    }
+                </div>
+            }
+            
         }
         
     
