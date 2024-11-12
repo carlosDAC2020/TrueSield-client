@@ -43,6 +43,9 @@ h1,h2{
 .bi-rss-fill{
     color:var(--rss-color)
 }
+.bi-info-circle{
+  color:#a6a3a3;
+}
 
 /* Scrollbar styles for Webkit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {

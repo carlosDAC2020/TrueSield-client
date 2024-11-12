@@ -6,23 +6,23 @@ import { Observable } from 'rxjs';
 })
 export class WebsocketService {
   private socket!: WebSocket;
-  
-  constructor() {
-    
-  }
-  
-  public connect(param1:string ): Observable<any> {
-    const token = localStorage.getItem('token');
-    this.socket = new WebSocket(`ws://localhost:8000/ws/valid/${param1}/?token=${token}`);
+
+  constructor() {}
+
+  public connect(): Observable<any> {
+    this.socket = new WebSocket(`ws://localhost:8000/ws/valid/`);
     return new Observable(observer => {
+      this.socket.onopen = () => {
+        console.log('Conexión establecida');
+      };
       this.socket.onmessage = (event) => observer.next(event.data);
       this.socket.onerror = (event) => observer.error(event);
       this.socket.onclose = () => observer.complete();
     });
   }
 
-  public sendMessage(message: string): void {
-    this.socket.send(message);
+  public sendMessage(data: any): void {
+    this.socket.send(JSON.stringify(data));
   }
 
   public close(): void {

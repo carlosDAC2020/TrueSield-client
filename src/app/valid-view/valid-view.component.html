@@ -1,22 +1,30 @@
 
 @defer  {
-    <div class="mt-5 m-5 d-flex flex-column lign-items-center justify-content-center">
-        <div class="row ">
+    <div class="mt-5 m-5 d-flex flex-column lign-items-center justify-content-center ">
+        <div class="row section-valid">
             <div class="col-9  p-2 text-white ">
                 <h1 class="comp ml-2">{{newInput}}</h1>
                 <div class="d-inline-flex gap-3 togles mt-2">
-                    <h3>
-                        <i class="bi bi-calendar"></i>{{characterisrics.temporality}}
-                    </h3>
-                    <h3 class="cart" data-bs-toggle="collapse" href="#keywords" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="bi bi-bookmark"></i> Keywords
-                    </h3>
-                    <h3 class="cart" data-bs-toggle="collapse" href="#locations" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="bi bi-geo-alt"></i> Location
-                    </h3>
-                    <h3 class="cart" data-bs-toggle="collapse" href="#involed" role="button" aria-expanded="false" aria-controls="collapseExample">
-                        <i class="bi bi-person"></i> Involved
-                    </h3>
+                    @if(characterisrics.length==0){
+                        <span class="placeholder_ col-3 "></span>
+                        <span class="placeholder_ col-3 "></span>
+                        <span class="placeholder_ col-3 "></span>
+                        <span class="placeholder_ col-3 "></span>
+                    }
+                    @else {
+                        <h3>
+                            <i class="bi bi-calendar"></i>{{characterisrics.temporality}}
+                        </h3>
+                        <h3 class="cart" data-bs-toggle="collapse" href="#keywords" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="bi bi-bookmark"></i> Keywords
+                        </h3>
+                        <h3 class="cart" data-bs-toggle="collapse" href="#locations" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="bi bi-geo-alt"></i> Location
+                        </h3>
+                        <h3 class="cart" data-bs-toggle="collapse" href="#involed" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="bi bi-person"></i> Involved
+                        </h3>
+                    }
                 </div>
                 <div class="row">
                     <div class="col">
@@ -24,7 +32,7 @@
                             <div class="card card-body d-flex flex-column align-items-center justify-content-center p-3">
                                 <div class="row gap-1 p-1">
                                     <span 
-                                    *ngFor="let keyword of characterisrics.keywords"
+                                    *ngFor="let keyword of characterisrics.keywords.keywords_es"
                                     class=" col badge rounded-pill kay-mv ">{{keyword}}</span>
                                 </div>
                             </div>
@@ -50,62 +58,14 @@
                                     <h5 
                                     *ngFor="let subject of characterisrics.subjects"
                                     class="">{{subject}}</h5>     
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>      
-                <div class=" search-box mt-2">
-                    <ul class="row d-flex  ml-2 ">
-                        <li class="col-6 entiti">
-                            <textarea 
-                            [(ngModel)]="textSearch"
-                            (input)="filterByText()"
-                            class="form-control input-new text-white w-100" 
-                            placeholder="Search By Text"
-                            ></textarea>
-                            <h4 
-                                *ngIf="textSearch.length>0"
-                                class="mt-2 item-filter"
-                                >Results {{filteredModels.length}} of {{itemsReference.length}}
-                            </h4>
-                        </li>
-                        <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                            <h1 
-                        (click)="activeFilterType(1)"
-                        [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
-                        >
-                        <i 
-                        [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
-                        class="bi bi-rss-fill "></i> {{cantItems.rss}}
-                            </h1>
-                        </li>
-                        <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                   
-                            <h1 
-                        (click)="activeFilterType(2)"
-                        [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
-                        >
-                        <i 
-                        [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
-                        class="bi bi-twitter-x "></i> {{cantItems.x}}
-                            </h1>
-                        </li>
-                        <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                            <h1 
-                        (click)="activeFilterType(3)"
-                        [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
-                        >
-                        <i 
-                        [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
-                        class="bi bi-reddit "></i> {{cantItems.reddit}}
-                            </h1>
-                        </li>
-                    </ul>  
-                </div>
-    
+                </div>   
             </div>
-            <div class="col-3 text-white">
+            <div class="col-3 text-white d-flex align-items-center justify-content-center">
                 <div class=" d-flex align-items-center justify-content-center ">
                     <div 
                     [ngClass]="{
@@ -113,14 +73,73 @@
                         'varacidad-media': veracity <= 50 && veracity>=20,
                         'varacidad-baja': veracity < 20
                         }"
-                    class="veracity d-flex flex-column align-items-center justify-content-center .animate-border ">
-                        <h4 class="text-center display-4  ">{{veracity}}%</h4>
+                    class="veracity d-flex flex-column align-items-center justify-content-center .animate-border p-3">
+                        <h1 class="text-center ">{{veracity}}%</h1>
                         <h4>Veracity</h4>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row  row-cols-1 row-cols-lg-3 align-items-stretch g-4 ">
+        @if(itemsReference.length ){
+            <div class=" search-box mt-2">
+                <ul class="row d-flex  ml-2 ">
+                    <li class="col-6 entiti">
+                        <textarea 
+                        [(ngModel)]="textSearch"
+                        (input)="filterByText()"
+                        class="form-control input-new text-white w-100" 
+                        placeholder="Search By Text"
+                        ></textarea>
+                        <h4 
+                            *ngIf="textSearch.length>0"
+                            class="mt-2 item-filter"
+                            >Results {{filteredModels.length}} of {{itemsReference.length}}
+                        </h4>
+                    </li>
+                    <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
+                        <h1 
+                    (click)="activeFilterType(1)"
+                    [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
+                    >
+                    <i 
+                    [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
+                    class="bi bi-rss-fill "></i> {{cantItems.rss}}
+                        </h1>
+                    </li>
+                    <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
+               
+                        <h1 
+                    (click)="activeFilterType(2)"
+                    [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
+                    >
+                    <i 
+                    [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
+                    class="bi bi-twitter-x "></i> {{cantItems.x}}
+                        </h1>
+                    </li>
+                    <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
+                        <h1 
+                    (click)="activeFilterType(3)"
+                    [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
+                    >
+                    <i 
+                    [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
+                    class="bi bi-reddit "></i> {{cantItems.reddit}}
+                        </h1>
+                    </li>
+                </ul>  
+            </div>
+        }
+        <div class="row  row-cols-1 row-cols-lg-3 align-items-stretch g-4 mt-2">
+            @if(itemsReference.length==0 ){
+                <div class="col plh_card "></div>
+                <div class="col plh_card "></div>
+                <div class="col plh_card "></div>
+                <div class="col plh_card "></div>
+                <div class="col plh_card "></div>
+                <div class="col plh_card "></div>
+            }
+
             @if (filteredModels.length > 0) {
                 <app-item-new
                 *ngFor="let item of filteredModels"
@@ -301,129 +320,8 @@
                 </div>
             </div>
         }
-        @if (!isSmallScreen) {
-            
-            <div class="contend  section-desktop" >
-                <div class="row mt-0 m-2">
-                    <div class="col-8">
-                        @defer{
-                            <div class=" p-2 text-white ">
-                                       
-                                
-                            </div>
-                        }
-                        @placeholder (minimum 5s) {
-                            <div class=" p-2 text-white card-img-top card_load d-flex justify-content-center align-items-center" style="height: 200px;">
-                                <i class="bi bi-body-text display-1 icon_load "></i>
-                            </div>
-                        }
-                        
-                        @defer{
-                            <div class=" p-2 text-white mt-2 comp">
-                                <div class=" search-box p-3 m-1 ">
-                                    <ul class="row d-flex  ml-2 ">
-                                        <li class="col-6 entiti">
-                                            <textarea 
-                                            [(ngModel)]="textSearch"
-                                            (input)="filterByText()"
-                                            class="form-control input-new text-white w-100" 
-                                            placeholder="Search By Text"
-                                            ></textarea>
-                                            <h4 
-                                                *ngIf="textSearch.length>0"
-                                                class="mt-2 item-filter"
-                                                >Results {{filteredModels.length}} of {{itemsReference.length}}
-                                            </h4>
-                                        </li>
-                                        <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                                            <h1 
-                                        (click)="activeFilterType(1)"
-                                        [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
-                                        >
-                                        <i 
-                                        [ngClass]="{'item-filter': isfilterRss==0,'':isfilterRss==1}"
-                                        class="bi bi-rss-fill "></i> {{cantItems.rss}}
-                                            </h1>
-                                        </li>
-                                        <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                                   
-                                            <h1 
-                                        (click)="activeFilterType(2)"
-                                        [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
-                                        >
-                                        <i 
-                                        [ngClass]="{'item-filter': isfilterX==0,'':isfilterX==1}"
-                                        class="bi bi-twitter-x "></i> {{cantItems.x}}
-                                            </h1>
-                                        </li>
-                                        <li class="flt col-2 entiti text-center  d-flex justify-content-center align-items-center  ">
-                                            <h1 
-                                        (click)="activeFilterType(3)"
-                                        [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
-                                        >
-                                        <i 
-                                        [ngClass]="{'item-filter': isfilterReddit==0,'':isfilterReddit==1}"
-                                        class="bi bi-reddit "></i> {{cantItems.reddit}}
-                                            </h1>
-                                        </li>
-                                    </ul>  
-                                </div>
-                                <div class="row row-cols-lg-2">
-                                    @if (filteredModels.length > 0) {
-                                    <app-item-new
-                                    *ngFor="let item of filteredModels"
-                                    [itemNew]="item"
-                                    [isValid]="true"
-                                    />
-                                    }
-                                    @else {
-                                        <app-item-new
-                                        *ngFor="let item of itemsReference"
-                                        [itemNew]="item"
-                                        [isValid]="true"
-                                        />
-                                    }
-                                </div>
-                            </div>
-                        }
-                        @placeholder (minimum 7s) {
-                            <div class=" p-2 text-white mt-3 card_load d-flex justify-content-center align-items-center" style="height: 450px;">
-                                <i class="bi bi-search display-1 icon_load "></i>
-                            </div>
-                        }
-                    </div>
-            
-                    @defer{
-                        <div class="col-4 card p-3 text-white comp results position-fixed"  >
-                            <h2>Veracity</h2>
-                            <div class=" d-flex align-items-center justify-content-center ">
-                                <div 
-                                [ngClass]="{
-                                    'varacidad-alta': veracity >= 50, 
-                                    'varacidad-media': veracity <= 50 && veracity>=20,
-                                    'varacidad-baja': veracity < 20
-                                    }"
-                                class="veracity d-flex flex-column align-items-center justify-content-center .animate-border ">
-                                    <h4 class="text-center display-4  ">{{ veracity }}%</h4>
-                                </div>
-                            </div>
-                            <h2>Inference</h2>
-                            <app-inference-graf/>
-                        </div>
-                    }
-                    @placeholder (minimum 7s) {
-                        <div class="col-4 h-100 w-40">
-                            <div class=" p-2 text-white card_load d-flex justify-content-center align-items-center" style="height: 500px;">
-                                <i class="bi bi-shield-check display-1 icon_load "></i>
-                            </div>
-                        </div>
-                    }
-                </div>
-                
-            </div>
-        }
-    
         
+    
       }
       @placeholder (minimum 1s) {
         <div class="ld w-100 h-100  d-flex flex-column align-items-center justify-content-center ">

@@ -2,6 +2,7 @@ import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {FormsModule} from "@angular/forms";
 import { Router } from '@angular/router';
+import { RouterOutlet } from '@angular/router';
 // servicios
 import { AuthService } from '../services/auth/auth.service';
 import { UserService } from '../services/user/user.service';
@@ -11,10 +12,11 @@ import { UserService } from '../services/user/user.service';
 import { MenuActionsComponent } from '../menu-actions/menu-actions.component';
 import { ValidViewComponent } from '../valid-view/valid-view.component';
 
+
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, FormsModule, MenuActionsComponent, ValidViewComponent],
+  imports: [CommonModule, FormsModule, MenuActionsComponent, ValidViewComponent, RouterOutlet],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
@@ -23,12 +25,13 @@ export class HomeComponent {
     // Manejo de renderizado según el tamaño de dispositivo
   isSmallScreen!: boolean;
 
+    // input de validacion 
+    inputNew:string="";
+
     // estado de validacion y de vista de detalles
     isValid:boolean=false;
     inHome:boolean=true;
 
-    // input de validacion 
-    inputNew:string="";
     // id de validacion
     idValidation!:any;
 
@@ -51,6 +54,8 @@ export class HomeComponent {
 
       // Obteniendo el tamaño de pantalla
       this.checkScreenSize();      
+
+      
     }
 
 
@@ -76,4 +81,7 @@ export class HomeComponent {
       this.auth.logout();
       this.router.navigate(['/index']);
     }
+
+    
+  
 }

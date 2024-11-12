@@ -1,7 +1,6 @@
 
 
 @defer{
-
     <header class=" py-3 nav-container fixed-top ">
         <div class="float-start mt-2">
             <h3 class=" menu-actions p-3" data-bs-toggle="offcanvas" href="#TrueMenu" role="button" aria-controls="offcanvasExample">
@@ -11,7 +10,7 @@
         </div>
         <div class="float-end mt-2">
             <h3
-            class="user-menu p-3" type="button" data-bs-toggle="collapse" data-bs-target="#user-menu" aria-expanded="false" aria-controls="collapseExample"
+            class="user-menu p-3" type="button" data-bs-toggle="collapse" data-bs-target="#user-menu" aria-expanded="false" aria-controls="user-menu"
             ><i class="bi bi-person-circle "></i> {{user.first_name}} {{user.last_name}}
             </h3>
             
@@ -27,83 +26,15 @@
             </div> 
         </div>
 
-        <app-menu-actions
-        (idValidate)="validationDetail($event)"
-        (isValid)="inHome=$event"
-        />
+        <app-menu-actions/>
 
     </header>
 
-    <section class=" w-90 h-100 d-flex justify-content-center">
-    
-        @if (isValid) {
-            <app-valid-view
-            class="w-100   valid-section"
-            [newInput]="inputNew"
-            [idValidation]="idValidation"
-            />
-        }
-        @if(inHome) {
-
-            @if (isSmallScreen) {
-                <div class="initial-valid p-2 ">
-                    <h1><i class="bi bi-shield-check" style="margin-top:50px;"></i></h1>
-                    <h1>Mobile</h1>
-                   
-                </div>
-            }
-            @else{
-                <div class="initial-valid p-2 ">
-                    <h1><i class="bi bi-shield-check"></i></h1>
-                    <h1>Example of news to validate </h1>
-                    <div class="row gap-3 mt-3 view">
-                        <div class="col ">
-                            <p class="example-new  p-3">
-                                Avances en la Inteligencia Artificial Revolucionan la Medicina Moderna
-                                Científicos desarrollan un nuevo algoritmo que mejora significativamente el diagnóstico temprano de enfermedades crónicas.
-                            </p>
-                        </div>
-                        <div class="col ">
-                            <p class="example-new p-3 view">
-                                Histórico Acuerdo Climático Logrado en la Cumbre Mundial
-                                Líderes globales se comprometen a reducir las emisiones de carbono en un 50% para 2030.
-                            </p>
-                        </div>
-                        <div class="col ">
-                            <p class="example-new p-3 view">
-                                Descubrimiento Arqueológico Sorprende a los Expertos en Egipto
-                                Se revela una nueva tumba faraónica con tesoros intactos que datan de más de 3,000 años.
-                            </p>
-                        </div>
-                    </div>
-                    <div class="row mb-3 w-70">
-                        <div class="col">
-                            <textarea 
-                            [(ngModel)]="inputNew"
-                            class="form-control input-new text-white mt-3"
-                            placeholder="Validate a new"
-                            ></textarea>
-                        </div>
-                    </div>
-                    @if (inputNew.length>0 && inputNew.length<60) {
-                        <h3><span class="danger">{{inputNew.length}}</span> of <span class="active mb-4">60</span> minimum number of characters for validation</h3>
-                    }
-                    @else if (inputNew.length>60) {
-                        <button 
-                        (click)="validateNews()"
-                        type="button" class=" me-3 btn-first p-2 mb-4" data-bs-toggle="modal" data-bs-target="#formUser">
-                        Validate 
-                        
-                        </button>
-                    }
-                </div>
-            }
-            
-        }
+    <section class=" w-90 h-100 d-flex justify-content-center ">
         
-    
+        <router-outlet></router-outlet>
+        
     </section>
-
   }
   @placeholder (minimum 1s) {
     <div class="ld w-100 h-100  d-flex flex-column align-items-center justify-content-center ">

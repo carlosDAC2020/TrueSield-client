@@ -1,0 +1,85 @@
+
+<div class="section-box">
+    <div class="row ">
+        <div class="col-1 box-config">
+            <i 
+                class="bi bi-sliders" 
+                data-bs-toggle="tooltip" 
+                title="Custom Parameters"
+                (click)="toggleConfigMenu()"
+                id="configIcon"
+            ></i>
+            <!-- Menú de configuración de pesos-->
+        <div class="config-menu dropdown-menu p-3" [ngClass]="{'show': showConfigMenu}" aria-labelledby="configIcon">
+            <h3>Veracity Factors <i class="bi bi-info-circle me-4"></i></h3>
+            
+            <!-- Selector por tipo de ítem -->
+            <div class="row p-1 selector-factor">
+                <div class="col item-selector-factor text-center" 
+                [ngClass]="{'item-selector-factor-active': selectedItemType == 'RSS' }"
+                (click)="setDefaults('RSS')">
+                    <i class="bi bi-rss-fill fs-3"></i>
+                </div>
+                <div class="col item-selector-factor text-center" 
+                [ngClass]="{'item-selector-factor-active': selectedItemType == 'Tweet'}"
+                (click)="setDefaults('Tweet')">
+                    <i class="bi bi-twitter-x fs-3"></i>
+                </div>
+                <div class="col item-selector-factor text-center" 
+                [ngClass]="{'item-selector-factor-active': selectedItemType =='Reddit'}" 
+                (click)="setDefaults('Reddit')">
+                    <i class="bi bi-reddit fs-3"></i>
+                </div>
+            </div>
+            <!-- Sección de configuración por factor -->
+            <div>
+                
+
+                <label for="rangeContext" class="form-label">
+                    <i class="bi bi-body-text"></i> Domain
+                    <span>{{ (rangeContextValue / 100) | percent:'1.0-0' }}</span>
+                </label>
+                <input type="range" class="form-range" id="rangeContext" [value]="rangeContextValue" (input)="onRangeContextChange($event)">
+
+                <label for="rangeConfidence" class="form-label">
+                    <i class="bi bi-check2-circle"></i> Confidence
+                    <span>{{ (rangeConfidenceValue / 100) | percent:'1.0-0' }}</span>
+                </label>
+                <input type="range" class="form-range" id="rangeConfidence" [value]="rangeConfidenceValue" (input)="onRangeConfidenceChange($event)">
+
+                <label for="rangeInference" class="form-label">
+                    <i class="bi bi-signpost-split"></i> Inference
+                    <span>{{ (rangeInferenceValue / 100) | percent:'1.0-0' }}</span>
+                </label>
+                <input type="range" class="form-range" id="rangeInference" [value]="rangeInferenceValue" (input)="onRangeInferenceChange($event)">
+            </div>
+        </div>
+
+
+        </div>
+        <div class="col-10 box-input">
+            <textarea 
+                [(ngModel)]="inputNew"
+                class="form-control input-new text-white mt-2"
+                placeholder="Validate a new"
+            ></textarea>
+        </div>
+        <div class="col-1 box-send">
+            <i 
+                (click)="validateNews()"
+                [ngClass]="{'send_active': inputNew.length >= 60}"
+                class="bi bi-send fs-3"></i>
+        </div>
+    </div>
+    <div class="box-message mt-2">
+        <!-- Mensajes de validación -->
+        @if (inputNew.length > 0 && inputNew.length < 60) {
+            <h3><span class="danger">{{inputNew.length}}</span> of <span class="active mb-4">60</span> minimum number of characters for validation</h3>
+        }
+        @else if (inputNew.length == 0) {
+            <h3>Be as descriptive as possible when writing the news item.</h3>
+        }
+    </div>
+</div>
+    
+

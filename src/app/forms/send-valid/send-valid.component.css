@@ -1,117 +1,25 @@
 
-/* detalles del heder superior */
-.menu-actions{
-    border: 2px solid #413e3e;
-    margin-left: 30px;
-    color: aliceblue;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: black;
-}
-.user-menu, #user-menu{
-    border: 2px solid #413e3e;
-    /*width: 300px;*/
-    color: aliceblue;
-    margin-right:30px;
-    text-align: center;
-    border-radius: 20px;
-    background-color: black;
-}
-.card-body{
-    background-color: black;
-    border: 2px solid #413e3e;
-    color: aliceblue;
-    border-radius: 20px;
-}
-.op-user-menu{
-    border-radius: 20px;
-    cursor: pointer;
-}
-.op-user-menu:hover{
-    background-color: var(--primary-green);
-}
-.logout{
-    border: 2px solid #db3838;
-    text-align: center;
-    border-radius: 20px;
-    cursor: pointer;
-}
-.logout:hover{
-    background-color: #ff1b1b;
-}
-
-/* detalles de seccion principal */
-.bi-shield-check{
-    color: var(--primary-green);
-    font-size: 120px;
-}
-
-.initial-valid{
-    border: 2px solid #413e3e;
-    margin-top: 70px;
-    width: 70%;
-    text-align: center;
-    color: #686666;
-}
-
-
-.example-new{
-    border: 2px solid var(--secondary-green);
-    border-radius: 20px;
-    text-align: start;
-    color: #d4cece;
-    font-size: 20px;
-}
-
-
-.valid{
-    color: beige;
-    font-size: 40px;
-    justify-content: center;
-    align-items: center;
-}
-
-.btn-v{
-    border: 3px solid var(--primary-green);
-    width: 70%;
-    border-radius: 30px;
-}
-
-.valid-section{
-    margin-top: 60px;
-}
-
-@media (max-width: 475px) {
-    .view{
-        display: none;
-    }
-    
-}
-
-
-
 /* estilos de imput de validacion*/
-.box-imput{
-    margin-bottom: 0px;
-    height: 20%;
-    width: 70%;
-    border-radius: 20px;
-    margin-left: 15%;
+.section-box{
+    margin-top: 70px;
 }
+.box-config {
+    border-radius: 100% 0 0 100%; 
+    position: relative; /* Establece el contenedor relativo */
+}
+ .box-send{
+    border-radius: 0 100% 100% 0; 
+}
+
 .box-config, .box-input, .box-send{
     background-color: rgb(15, 14, 14);
     border-bottom: 2px solid var(--primary-green) ;
-    height: 60%;
-}
+} 
 
-.box-config {
-    border-radius: 100% 0 0 100%; 
-}
-.box-send{
-    border-radius: 0 100% 100% 0; 
-}
+
+
 /* ubicacion de los iconos*/
-.box-config, .box-send{
+ .box-config, .box-send{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,7 +49,7 @@ textarea:focus {
 }
 
 .bi-sliders{
- font-size: 40px;
+ font-size: 28px;
  color: #868585;
  font-weight: bolder;
  cursor: pointer;   
@@ -226,12 +134,5 @@ textarea:focus {
     height: var(--form-range-track-height); /* Altura del track */
     border-radius: var(--form-range-track-border-radius); /* Radio de borde del track */
 }
-
-
-
-
-
-
-
 
 

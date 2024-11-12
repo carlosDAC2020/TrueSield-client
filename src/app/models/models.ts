@@ -1,6 +1,6 @@
 export class ItemRss {
-    Id?: number;
-    Type_item:string="rss";
+    Id?: any;
+    Type_item:string="Rss";
     Page?: string;
     DatePublication?: string;
     Title?:string;
@@ -9,12 +9,16 @@ export class ItemRss {
     BodyText?:string;
     Summary?:string;
     UrlAticle?:string;
-
+    TrueLevel?:number;
+    ContextLevel?:number;
+    inference?:string;
+    rating?:number;
 }
 
+
 export class ItemReddit {
-    Id?: number;
-    Type_item:string="reddit";
+    Id?: any;
+    Type_item:string="Reddit";
     DatePub?: string;
     NameProfile?: string;
     TitlePub?: string;
@@ -22,11 +26,15 @@ export class ItemReddit {
     CantUpVotes?: number;
     CantDownVotes?: number;
     CantShares?: number;
+    TrueLevel?:number;
+    ContextLevel?:number;
+    inference?:string;
+    rating?:number;
 }
 
 export class ItemX{
-    Id?:number;
-    Type_item:string="x";
+    Id?:any;
+    Type_item:string="X";
     DatePub?:string;
     UserPorifle?:string;
     NameProfile?:string;
@@ -34,4 +42,8 @@ export class ItemX{
     CantLikes?:number;
     CantRetweets?:number;
     CantComents?:number;
+    TrueLevel?:number;
+    ContextLevel?:number;
+    inference?:string;
+    rating?:number;
 }

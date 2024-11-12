@@ -2,7 +2,9 @@
     background-color: black; 
     border: 2px solid #14171A;
 }
-
+.section-valid{
+  margin-top: 50px;
+}
 /* estilos de escritorio --------------------------------------------------------------*/
 a {
   text-decoration: none;
@@ -73,6 +75,8 @@ ul {
 }
 
 .search-box{
+  width: 70%;
+  color: aliceblue;
   /*border: 2px solid #14171A;*/
 }
 
@@ -297,4 +301,34 @@ textarea:focus {
   overflow-y: auto;
   right:0;
 }
+
+
+.placeholder_ {
+  margin-top: 10px;
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  background: linear-gradient(90deg, #222222 25%, #3d3d3d 50%, #282828 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+.plh_card{
+  width: 400px;
+  height: 150px;
+  border-radius: 40px;
+  margin-right: 10px;
+  background: linear-gradient(90deg, #222222 25%, #3d3d3d 50%, #282828 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
 

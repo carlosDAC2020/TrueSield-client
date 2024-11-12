@@ -1,5 +1,5 @@
-@if (itemNew.Type_item=="rss") {
-  <div class="col mb-3 rounded-4" data-bs-toggle="modal" [attr.data-bs-target]="'#rss'+itemNew.id">
+@if (itemNew.Type_item=="Rss") {
+  <div class="col mb-3 rounded-4" data-bs-toggle="modal" [attr.data-bs-target]="'#rss'+itemNew.Id">
     <div class="card card-rss">
         <div class="card-body">
           <div class="row">
@@ -21,7 +21,7 @@
     
     <!-- Movil -->
     @if (isSmallScreen) {
-      <div class="modal fade" [attr.id]="'rss'+itemNew.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" [attr.id]="'rss'+itemNew.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content p-4 card-rss card">
             <div class="">
@@ -142,8 +142,8 @@
 
 } 
 
-@if (itemNew.Type_item=="x") {
-  <div class="col mb-3 rounded-4" data-bs-toggle="modal" [attr.data-bs-target]="'#x'+itemNew.id">
+@if (itemNew.Type_item=="X") {
+  <div class="col mb-3 rounded-4" data-bs-toggle="modal" [attr.data-bs-target]="'#x'+itemNew.Id">
     <div class="card card-x">
         <div class="card-body">
           <div class="row">
@@ -186,7 +186,7 @@
     
     <!-- Movil -->
     @if (isSmallScreen) {
-      <div class="modal fade" [attr.id]="'x'+itemNew.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" [attr.id]="'x'+itemNew.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content p-4 card-x card">
             <div class="">
@@ -352,8 +352,8 @@
 
 } 
 
-@if (itemNew.Type_item=="reddit") {
-  <div class="col mb-3 rounded-4" data-bs-toggle="modal" [attr.data-bs-target]="'#reddit'+itemNew.id">
+@if (itemNew.Type_item=="Reddit") {
+  <div class="col mb-3 rounded-4" data-bs-toggle="modal" [attr.data-bs-target]="'#reddit'+itemNew.Id">
     <div class="card card-reddit">
         <div class="card-body">
           <div class="row">
@@ -403,7 +403,7 @@
     
     <!-- Movil -->
     @if (isSmallScreen) {
-      <div class="modal fade" [attr.id]="'reddit'+itemNew.id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" [attr.id]="'reddit'+itemNew.Id" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
           <div class="modal-content p-3 card-reddit card">
             <div class="">

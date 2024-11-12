@@ -1,5 +1,6 @@
-import { Component,  Output, EventEmitter } from '@angular/core';
+import { Component, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 // servicios
 import { UserService } from '../services/user/user.service';
@@ -15,7 +16,9 @@ export class MenuActionsComponent {
 
   validations:any=[];
 
-  constructor(private user:UserService){
+  constructor(
+    private user:UserService, 
+    private router: Router){
     this.user.historyValidations().subscribe(
       (response: any) => {
         this.validations = response.validations;
@@ -26,15 +29,14 @@ export class MenuActionsComponent {
       }
     );
   }
-
   
-  @Output() idValidate = new EventEmitter<number>();
   validateDetail(idValidate:any){
-    this.idValidate.emit(idValidate);
+    // Navegar a la vista de validación y pasar el valor del input
+    this.router.navigate(['/home/validate'], { queryParams: { idValid: idValidate } });
   }
 
-  @Output() isValid = new EventEmitter<boolean>();
   newValidate(){
-    this.isValid.emit(true);
+    this.router.navigate(['/home']);
   }
+  
 }

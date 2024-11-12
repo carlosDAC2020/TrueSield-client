@@ -44,4 +44,6 @@ notas.txt
 
 .vscode/
 
+terraform/
+ansible/
 

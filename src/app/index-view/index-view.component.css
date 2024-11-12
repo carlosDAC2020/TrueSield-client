@@ -124,4 +124,6 @@ video{
 .bi{
   color: var(--primary-green);
 }
-
+.nn-section{
+  background-color: #fff;
+}
